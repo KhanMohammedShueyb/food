@@ -1,0 +1,195 @@
+<template>
+    <section class="mt-3">
+        <!-- <v-card class="rounded white pa-5"> -->
+            <v-data-table flat tile :search="search" :headers="headers" :items="dataa" sort-by="id"
+                class="elevation-1 table">
+                <template v-slot:top>
+                    <v-toolbar class="white" tile flat>
+                        <v-row>
+                            <v-col> <v-toolbar-title>
+                                    <h2 class="d-flex align-center"><v-icon class="px-2">mdi-account</v-icon> Users
+                                    </h2>
+                                </v-toolbar-title>
+                            </v-col>
+                            <v-col class="d-flex align-center justify-end ">
+                                <v-text-field v-model="search" class="custom-label-color mr-5" hide-details single-line
+                                    color="red" dense solo label="Search anything"
+                                    prepend-inner-icon="mdi-magnify"></v-text-field>
+                            </v-col>
+                        </v-row>
+                    </v-toolbar>
+                </template>
+            </v-data-table>
+        <!-- </v-card> -->
+    </section>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import axios from 'axios';
+import { Getter } from 'vuex-class';
+
+@Component({
+})
+export default class userss extends Vue {
+    @Getter("Authenticated/authenticatedUser") getAuthUser: () => Promise<Object>;
+    public search: any = ""
+    public input: any = []
+    public headers: Array<Object> = [
+        {
+            text: 'Uid',
+            align: 'start',
+            sortable: false,
+            value: 'id',
+        },
+        { text: 'Username', value: 'name' },
+        { text: 'Email', value: 'email' },
+        { text: 'Password', value: 'password' },
+        { text: 'Gender', value: 'gender' },
+        { text: 'phoneNumber', value: 'phno' },
+        
+    ]
+    // public data: Array<Object> = [
+    //     {
+    //         uid: '123',
+    //         username: 'Sabih',
+    //         email: 'abc@gmail.com',
+    //         password: '12345',
+    //         gender: 'Male',
+    //         phNumber: 3435515668,
+    //     },
+       
+    // ]
+    public dataa: Array<Object>=[];
+    mounted(){
+        let payload = this.getAuthUser
+        axios.post("/api/user/getData",payload).then((Response)=>{
+            debugger;
+            this.dataa = Response.data.user;
+        })
+    }
+}
+</script>
+
+<style scoped>
+.card1 {
+    border-radius: 20px !important;
+    background-color: #f8f8f8;
+}
+
+:deep(.theme--dark.v-text-field--solo>.v-input__control>.v-input__slot) {
+    background: #f8f8f8 !important;
+}
+
+.btn {
+    color: #2ebd6e;
+    background-color: #def2e7 !important;
+    font-weight: bold !important;
+}
+
+:deep(.mdi-account) {
+    font-size: 50px;
+    color: #2ebd6e;
+
+}
+
+:deep(.mdi-pencil) {
+    font-size: 30px !important;
+    color: #2ebd6e;
+
+}
+
+:deep(.mdi-delete) {
+    font-size: 30px !important;
+    color: red;
+
+}
+
+:deep(.mdi-magnify) {
+
+    color: #2ebd6e;
+}
+:deep(.custom-label-color .v-label) {
+    color: #122932;
+    opacity: 1;
+}
+:deep(.v-data-footer__icons-before) {
+    /* font-size: 50px !important; */
+    background-color: #2ebd6e !important;
+}
+:deep(.v-data-footer__icons-after) {
+    background-color: #2ebd6e !important;
+}
+:deep(.v-data-footer__select .v-select__selections .v-select__selection--comma) {
+    color: black;
+}
+:deep(.mdi-menu-down::before) {
+    background-color: #2ebd6e !important;
+}
+
+:deep(.custom-label-color .v-input) {
+    color: #122932;
+    opacity: 1;
+}
+
+:deep(.v-input input) {
+    max-height: 32px;
+    color: black;
+}
+:deep(.v-input) {
+    max-width: 60%; 
+}
+.table {
+    background-color: transparent;
+    color: #122932;
+
+}
+
+h2 {
+    color: #122932;
+    font-weight: bold;
+}
+
+:deep(thead) {
+    background: #f9f9fb !important;
+    height: 60px !important;
+}
+
+:deep(th) {
+    color: #2ebd6e !important;
+    font-size: 20px !important;
+    position: relative;
+    font-weight: bold;
+    vertical-align: middle !important;
+}
+
+:deep(tbody tr) {
+    height: 80px;
+    border-top: 2px solid #def2e7;
+}
+
+:deep(tbody) {
+    margin: 80px !important;
+}
+
+
+:deep(td) {
+
+    font-size: 20px !important;
+    vertical-align: middle;
+}
+
+@media screen and (max-width:600px) {
+    :deep(tbody tr) {
+        height: auto;
+        border-top: 2px solid #def2e7;
+    }
+}
+
+/* @media screen and (max-width:1024px){
+    .borders{
+        width: auto !important;
+        height: auto !important;
+    }
+} */
+</style>

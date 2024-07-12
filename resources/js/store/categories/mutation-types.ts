@@ -1,0 +1,4 @@
+export enum CategoriesMutations {
+    SET_CATEGORIES_INFO = "SET_CATEGORIES_INFO",
+    GET_CATEGORIES_INFO = "GET_CATEGORIES_INFO",
+  }

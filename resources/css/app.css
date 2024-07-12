@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    max-width: 100%;
+}
+.container {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+/****===Fonts====******/
+ /* @font-face {
+    font-family: 'Sitka';
+    src: url('../fonts/SitkaBanner.woff') format('woff'),
+        url('../fonts/SitkaBanner.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sitka';
+    src: url('../fonts/SitkaSmall.woff') format('woff'),
+        url('../fonts/SitkaSmall.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sitka';
+    src: url('../fonts/SitkaSmall-Bold.woff') format('woff'),
+        url('../fonts/SitkaSmall-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../fonts/SegoeUI.woff') format('woff'),
+        url('../fonts/SegoeUI.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
+/*********** Slider Css Start********* */
+.img-slider-wrapper {
+	padding: 100px 0;
+}
+.section-title {
+	font-size: 28px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	font-weight: 500;
+	display: inline-block;
+	position: relative;
+}
+.section-title:after,
+.section-title:before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+}
+.section-title:after {
+	height: 2px;
+	background-color: rgba(252, 92, 15, 0.46);
+	left: 25%;
+	right: 25%;
+}
+
+.section-title:before {
+	width: 15px;
+	height: 15px;
+	border: 3px solid #fff;
+	background-color: #fc5c0f;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: -6px;
+	z-index: 9;
+	border-radius: 50%;
+}
+
+
+/* CAROUSEL STARTS */
+/* .customer-feedback .owl-item img {
+	max-width: 100%;
+    width: 200px;
+} */
+
+.feedback-slider-item {
+	position: relative;
+	padding: 30px 30px 60px 70px;
+}
+
+/* GREY BACKGROUND COLOR OF THE ACTIVE SLIDER */
+
+.owl-item.active{
+	z-index: 999;
+}
+
+.thumb-prev,
+.thumb-next {
+	position: absolute;
+	top: -30%;
+	width: 400px;
+	left: 0px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.thumb-next {
+	top: 215px;
+}
+
+.feedback-slider-thumb img {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+
+
+.customer-feedback .owl-nav [class*="owl-"] {
+	position: relative;
+	display: inline-block;
+	bottom: 45px;
+	transition: all 0.2s ease-in;
+}
+/* RESPONSIVE */
+@media screen and (max-width: 767px) {
+	.feedback-slider-item:after {
+		left: 30px;
+		right: 30px;
+	}
+	.customer-feedback .owl-nav [class*="owl-"] {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-top: 45px;
+		bottom: auto;
+	}
+	.customer-feedback .owl-prev {
+		left: 0;
+	}
+	.customer-feedback .owl-next {
+		right: 0;
+	}
+}

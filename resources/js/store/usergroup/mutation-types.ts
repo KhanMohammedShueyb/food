@@ -1,0 +1,4 @@
+export enum UserGroupMutations {
+    SET_USER_GROUP = "SET_USER_GROUP",
+    GET_GROUP_PERMISSIONS = "GET_GROUP_PERMISSIONS",
+  }

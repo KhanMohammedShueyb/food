@@ -1,0 +1,6 @@
+export const config = {
+	PUSHER_APP_ID: "1249398",
+	PUSHER_APP_KEY: "e98960bc40de62b0ca27",
+	PUSHER_APP_SECRET: "c41f689c7ada47e657bc",
+	PUSHER_APP_CLUSTER: "mt1",
+};

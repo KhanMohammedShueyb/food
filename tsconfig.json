@@ -1,0 +1,53 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "module": "esnext",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "isolatedModules": false,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": true,
+        "removeComments": true,
+        "noLib": false,
+        "strict": true,
+        "outDir": "lib",
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "strictPropertyInitialization": false,
+        "lib": [
+            "es2015",
+            "dom",
+            "ESNext",
+        ],
+        "typeRoots": [
+            "./node_modules/@types",
+            "@types"
+        ],
+        "types": [
+            // "webpack-env",
+            // "vue-flash-message",
+            "vuetify"
+        ],
+        "paths": {
+            "@/*": [
+                "./resources/js/*"
+            ],
+            "@views/*": [
+                "./resources/js/components/views"
+            ],
+            "@helpers/*": [
+                "./resources/js/helpers"
+            ],
+        },
+    },
+    "exclude": [
+        "node_modules",
+        "vendor"
+    ],
+    "include": [
+        "resources/js/**/*"
+    ],
+}
